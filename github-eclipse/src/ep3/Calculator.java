@@ -38,6 +38,7 @@ public class Calculator extends Application {
 		bts.add(btDivide);
 		btStyle(bts);
 		tfAnswer.setEditable(false);//Making Answer box unchangeable
+		
 		//Setting the actions for each Button
 		bts.get(0).setOnAction(e -> {
 			calculateSum();
@@ -56,7 +57,7 @@ public class Calculator extends Application {
 		//GridPane Set up
 		GridPane pane = new GridPane();
 		pane.setHgap(5);
-		pane.setVgap(5);
+		pane.setVgap(10);
 		pane.setPadding(new Insets(15));
 		
 		//Adding HBoxes in the GridPane
@@ -90,30 +91,34 @@ public class Calculator extends Application {
 	
 	public void calculateSum() {
 		
-		double num1 = Double.parseDouble(tfNum1.getText());
-		double num2 = Double.parseDouble(tfNum2.getText());
-		Double sum = num1 + num2;
-		tfAnswer.setText(sum.toString());
+		if (tfNum1.getText() != null && !tfNum1.getText().isEmpty() && tfNum2.getText() != null && !tfNum2.getText().isEmpty()) {
+			double num1 = Double.parseDouble(tfNum1.getText());
+			double num2 = Double.parseDouble(tfNum2.getText());
+			Double sum = num1 + num2;
+			tfAnswer.setText(sum.toString());
+		}
 	}
 	
 	public void calculateDiff() {
-	
+		if (tfNum1.getText() != null && !tfNum1.getText().isEmpty() && tfNum2.getText() != null && !tfNum2.getText().isEmpty()) {
 		double num1 = Double.parseDouble(tfNum1.getText());
 		double num2 = Double.parseDouble(tfNum2.getText());
 		Double difference = num1 - num2;
 		tfAnswer.setText(difference.toString());	
+		}
 	}
 	
 	public void calculateProd() {
-		
+		if (tfNum1.getText() != null && !tfNum1.getText().isEmpty() && tfNum2.getText() != null && !tfNum2.getText().isEmpty()) {
 		double num1 = Double.parseDouble(tfNum1.getText());
 		double num2 = Double.parseDouble(tfNum2.getText());
 		Double prod = num1 * num2;
-		tfAnswer.setText(prod.toString());	
+		tfAnswer.setText(prod.toString());
+		}
 	}
 	
 	public void calculateQuotient() {
-		
+		if (tfNum1.getText() != null && !tfNum1.getText().isEmpty() && tfNum2.getText() != null && !tfNum2.getText().isEmpty()) {
 		double num1 = Double.parseDouble(tfNum1.getText());
 		double num2 = Double.parseDouble(tfNum2.getText());
 		if(num2 != 0) {
@@ -121,6 +126,7 @@ public class Calculator extends Application {
 			tfAnswer.setText(quotient.toString());
 		} else {
 			tfAnswer.setText("Undefined");
+		}
 		}
 	}
 	
